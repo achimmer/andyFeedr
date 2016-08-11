@@ -11,6 +11,14 @@
      width: 85%;
   }
 }
+
+.source-label {
+  color: rgba(255,255,255,0.5);
+  text-transform: uppercase;
+  font-size: smaller;
+  font-stretch: expanded;
+}
+
 .post {
 }
 
@@ -30,6 +38,13 @@
   max-width: 100%;
 }
 
+.post .postDescription .infobox, .post .postDescription h2, .post .postDescription center, .post .postDescription ul, .post .postDescription table{
+  display:none;
+}
+
+.post .postDescription .thumbinner {
+  width: auto !important;
+}
 
 .icon-block {
   padding: 0 15px;

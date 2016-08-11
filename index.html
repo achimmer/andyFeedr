@@ -12,33 +12,46 @@
 </head>
 
 <body>
-  <nav class="blue darken-4" role="navigation">
-    <div class="nav-wrapper container"><a id="logo-container" href="#" class="brand-logo">Andy's Feedr</a>
+  <nav class="blue darken-3" role="navigation">
+    <div class="nav-wrapper container"><a id="logo-container" href="#" class="brand-logo light-blue-text lighten-4">Andy's Feedr</a>
       <ul class="right hide-on-med-and-down">
-        <li><a id="source1" href="#">Source 1</a></li>
-        <li><a id="source1" href="#">Source 2</a></li>
+        <li class="source-label">Select your feed source<i class="material-icons right">arrow_forward</i></li>
+        <li><a id="source1" href="#">Ships &amp; Seas</a></li>
+        <li><a id="source2" href="#">News</a></li>
       </ul>
 
       <ul id="nav-mobile" class="side-nav">
-        <li><a id="source1" href="#">Source 1</a></li>
-        <li><a id="source1" href="#">Source 2</a></li>
+        <li><a id="source1" href="#">Ships &amp; Seas</a></li>
+        <li><a id="source2" href="#">News</a></li>
       </ul>
       <a href="#" data-activates="nav-mobile" class="button-collapse"><i class="material-icons">menu</i></a>
     </div>
   </nav>
+
   <div class="section no-pad-bot" id="index-banner">
     <div class="container">
-      <h1 class="header center red-text">RSS Feeds come hither</h1>
+      <h1 id="source-header" class="header center red-text">Ships &amp; Seas</h1>
       <div id="feedContent" class="row center">
+
+        <!-- Loading Graphic -->
+        <div id="loading" class="preloader-wrapper big active">
+          <div class="spinner-layer spinner-blue-only">
+            <div class="circle-clipper left">
+              <div class="circle"></div>
+            </div><div class="gap-patch">
+              <div class="circle"></div>
+            </div><div class="circle-clipper right">
+              <div class="circle"></div>
+            </div>
+          </div>
+        </div>
       </div>
 
     </div>
   </div>
 
-
   <div class="container">
     <section class="section">
-
     </section>
   </div>
 
