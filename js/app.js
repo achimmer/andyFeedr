@@ -7,20 +7,18 @@ $(function() {
 
   // Button logic
   $source1Btn.on('click', function() {
+    $preLoader.show();
     $feedContent.empty();
     $sourceHeader.text('Ships & Seas');
     source1Feed();
   });
 
   $source2Btn.on('click', function() {
+    $preLoader.show();
     $feedContent.empty();
     $sourceHeader.text('WikiNews');
     source2Feed();
   });
-
-  var changeHeader = function() {
-
-  };
 
   // Ships and Seas Tumblr
   var source1Feed = function() {
@@ -49,6 +47,7 @@ $(function() {
 
   // WikiNews
   var source2Feed = function() {
+    $preLoader.show();
     $.ajax({
       type: 'GET',
       url: 'https://accesscontrolalloworiginall.herokuapp.com/https://en.wikinews.org/w/index.php?title=Special:NewsFeed&feed=atom&categories=Published&notcategories=No%20publish%7CArchived%7CAutoArchived%7Cdisputed&namespace=0&count=30&hourcount=124&ordermethod=categoryadd&stablepages=only',
