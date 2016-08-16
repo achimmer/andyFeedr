@@ -2,6 +2,7 @@ $(function() {
   var $source1Btn = $('#source1');
   var $source2Btn = $('#source2');
   var $feedContent = $('#feedContent');
+  var $modalContent = $('#modalContent');
   var $preLoader = $('#loading');
   var $sourceHeader = $('#source-header');
 
@@ -35,7 +36,8 @@ $(function() {
           var tumblrLink = "<a href='" + tumblrUrl + "' target='_blank'>Read More<a>";
           var linkUrl = $(this).find("link_url").text();
           var link = "<a href='" + linkUrl + "' target='_blank'>Read More<a>";
-          $feedContent.append('<article class="col s4 card-panel post"><h1 class="postTitle truncate">'+title+'</h1><p class="postDescription">'+description+linkUrl+'</p>'+'<p>'+tumblrLink+'</p>'+'</article>');
+          var feedContent1 = "<article class='col s4 card-panel post'><h1 class='postTitle truncate'>" + title + "</h1><p class='postDescription'>" + description + linkUrl + "</p>" + "<p>" + tumblrLink + "</p>" + "</article>";
+          $feedContent.append(feedContent1);
         });
         $preLoader.hide();
       },
@@ -59,7 +61,10 @@ $(function() {
           var summary = $(this).find("summary").text();
           var wikiUrl = $(this).find("id").text();
           var wikiLink = "<a href='" + wikiUrl + "' target='_blank'>Read More<a>";
-          $feedContent.append('<article class="col s4 card-panel post"><h1 class="postTitle truncate">'+title+'</h1><div class="postDescription">'+summary+'</div>'+'<p>'+wikiLink+'</p>'+'</article>');
+          var modalContent2 = "<h1 class='postTitle truncate'>" + title + "</h1><div class='postDescription'>" + summary + "</div><p>"+ wikiLink + "</p>";
+          var feedContent2 = "<article class='col s4 card-panel post fixed-height'><h1 class='postTitle truncate'>" + title + "</h1><div class='postDescription'>" + summary + "</div><p>"+ wikiLink + "</p></article>";
+          $feedContent.append(feedContent2);
+          $modalContent.append(modalContent2);
         });
         $preLoader.hide();
       },
