@@ -3,6 +3,7 @@ $(function() {
   var $source2Btn = $('.source2');
   var $feedContent = $('#feedContent');
   var $modalContent = $('#modalContent');
+  var $modalTrigger = $('.modal-trigger');
   var $preLoader = $('#loading');
   var $sourceHeader = $('#source-header');
 
@@ -19,6 +20,10 @@ $(function() {
     $feedContent.empty();
     $sourceHeader.text('WikiNews');
     source2Feed();
+  });
+
+  $modalTrigger.on('click', function() {
+
   });
 
   // Ships and Seas Tumblr
@@ -62,7 +67,7 @@ $(function() {
           var wikiUrl = $(this).find("id").text();
           var wikiLink = "<a href='" + wikiUrl + "' target='_blank'>Read More<a>";
           var modalContent2 = "<h1 class='postTitle truncate'>" + title + "</h1><div class='postDescription'>" + summary + "</div><p>"+ wikiLink + "</p>";
-          var feedContent2 = "<article class='col s12 m6 l4 card-panel post fixed-height'><h1 class='postTitle truncate'>" + title + "</h1><div class='postDescription'>" + summary + "</div><p>"+ wikiLink + "</p></article>";
+          var feedContent2 = "<article class='col s12 m6 l4 card-panel post fixed-height'><div class='read-more-container'><button data-target='modal1' class='btn grey modal-trigger'>Read More</button></div><h1 class='postTitle truncate'>" + title + "</h1><div class='postDescription'>" + summary + "</div><p>"+ wikiLink + "</p></article>";
           $feedContent.append(feedContent2);
           $modalContent.append(modalContent2);
         });

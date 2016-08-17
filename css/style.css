@@ -10,6 +10,9 @@
   .container {
      width: 90%;
   }
+  #feedContent {
+    min-height: 670px;
+  }
 }
 
 .source-label {
@@ -22,12 +25,25 @@
 .post.fixed-height {
   max-height: 280px;
   overflow: hidden;
+  position: relative !important;
+  box-sizing: border-box;
 }
 
 .post.col {
   float: none;
   display: inline-block;
   vertical-align: top;
+}
+
+.post .read-more-container {
+  display: block;
+  position: absolute;
+  bottom:0;
+  text-align: center;
+  background:rgba(255, 255, 255, 0.5);
+  height:3.5rem;
+  width: 100%;
+  padding-top: .5rem;
 }
 
 .post .postTitle {
