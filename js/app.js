@@ -3,7 +3,6 @@ $(function() {
   var $source2Btn = $('.source2');
   var $feedContent = $('#feedContent');
   var $modalContent = $('#modalContent');
-  var $modalTrigger = $('.modal-trigger');
   var $preLoader = $('#loading');
   var $sourceHeader = $('#source-header');
 
@@ -22,8 +21,14 @@ $(function() {
     source2Feed();
   });
 
-  $modalTrigger.on('click', function() {
+  // $('.modal-trigger').leanModal();
 
+  $feedContent.on('click', '.modal-trigger', function() {
+    var postStuff = $(this).parent().parent();
+    var title = postStuff.find('.postTitle').html();
+    var summary = postStuff.find('.postDescription').html();
+    $modalContent.find('.modal-content').append(title + summary);
+    $modalContent.openModal();
   });
 
   // Ships and Seas Tumblr
@@ -34,7 +39,6 @@ $(function() {
       dataType: 'xml',
       success: function (xml) {
         $(xml).find("item").each(function () {
-          console.log(xml);
           var title = $(this).find("title").text();
           var description = $(this).find("description").text();
           var tumblrUrl = $(this).find("link").text();
@@ -61,15 +65,13 @@ $(function() {
       dataType: 'xml',
       success: function (xml) {
         $(xml).find("entry").each(function () {
-          console.log(xml);
-          var title = $(this).find("title").text();
-          var summary = $(this).find("summary").text();
-          var wikiUrl = $(this).find("id").text();
+          var $this = $(this)
+          var title = $this.find("title").text();
+          var summary = $this.find("summary").text();
+          var wikiUrl = $this.find("id").text();
           var wikiLink = "<a href='" + wikiUrl + "' target='_blank'>Read More<a>";
-          var modalContent2 = "<h1 class='postTitle truncate'>" + title + "</h1><div class='postDescription'>" + summary + "</div><p>"+ wikiLink + "</p>";
           var feedContent2 = "<article class='col s12 m6 l4 card-panel post fixed-height'><div class='read-more-container'><button data-target='modal1' class='btn grey modal-trigger'>Read More</button></div><h1 class='postTitle truncate'>" + title + "</h1><div class='postDescription'>" + summary + "</div><p>"+ wikiLink + "</p></article>";
           $feedContent.append(feedContent2);
-          $modalContent.append(modalContent2);
         });
         $preLoader.hide();
       },

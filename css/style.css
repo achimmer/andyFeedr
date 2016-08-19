@@ -64,6 +64,11 @@
   width: auto !important;
 }
 
+.modal-content {
+  width: 80%;
+}
+.infobox {}
+
 .icon-block {
   padding: 0 15px;
 }
