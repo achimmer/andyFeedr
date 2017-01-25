@@ -67,7 +67,7 @@ $(function() {
       dataType: 'xml',
       success: function (xml) {
         $(xml).find("entry").each(function () {
-          var $this = $(this)
+          var $this = $(this);
           var title = $this.find("title").text();
           var summary = $this.find("summary").text();
           var wikiUrl = $this.find("id").text();
