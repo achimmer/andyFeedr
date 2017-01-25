@@ -38,6 +38,7 @@ $(function() {
       url: 'https://accesscontrolalloworiginall.herokuapp.com/http://shipsandseasworldwide.tumblr.com/rss',
       dataType: 'xml',
       success: function (xml) {
+        var html = '';
         $(xml).find("item").each(function () {
           var title = $(this).find("title").text();
           var description = $(this).find("description").text();
@@ -46,8 +47,9 @@ $(function() {
           var linkUrl = $(this).find("link_url").text();
           var link = "<a href='" + linkUrl + "' target='_blank'>Read More<a>";
           var feedContent1 = "<article class='col s12 m6 l4 card-panel post'><h1 class='postTitle truncate'>" + title + "</h1><p class='postDescription'>" + description + linkUrl + "</p>" + "<p>" + tumblrLink + "</p>" + "</article>";
-          $feedContent.append(feedContent1);
+          html += feedContent1;
         });
+        $feedContent.append(feedContent1);
         $preLoader.hide();
       },
       error: function() {
@@ -71,8 +73,9 @@ $(function() {
           var wikiUrl = $this.find("id").text();
           var wikiLink = "<a href='" + wikiUrl + "' target='_blank'>Read More<a>";
           var feedContent2 = "<article class='col s12 m6 l4 card-panel post fixed-height'><div class='read-more-container'><button data-target='modal1' class='btn grey modal-trigger'>Read More</button></div><h1 class='postTitle truncate'>" + title + "</h1><div class='postDescription'>" + summary + "</div><p>"+ wikiLink + "</p></article>";
-          $feedContent.append(feedContent2);
+          html += feedContent2;
         });
+        $feedContent.append(feedContent2);
         $preLoader.hide();
       },
       error: function() {
